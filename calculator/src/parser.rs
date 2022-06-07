@@ -78,6 +78,7 @@ fn parse_unary_expr(pair: pest::iterators::Pair<Rule>, child: Node) -> Node {
         op: match pair.as_str() {
             "+" => Operator::Plus,
             "-" => Operator::Minus,
+            "x" => Operator::Multiply,
             _ => unreachable!(),
         },
         child: Box::new(child),
@@ -89,6 +90,7 @@ fn parse_binary_expr(pair: pest::iterators::Pair<Rule>, lhs: Node, rhs: Node) ->
         op: match pair.as_str() {
             "+" => Operator::Plus,
             "-" => Operator::Minus,
+            "x" => Operator::Multiply,
             _ => unreachable!(),
         },
         lhs: Box::new(lhs),
