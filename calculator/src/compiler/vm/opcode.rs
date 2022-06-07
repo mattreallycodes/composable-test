@@ -60,6 +60,6 @@ mod tests {
 
     #[test]
     fn make_op_mul() {
-        assert_eq!(vec![0x06], make_op(OpCode::OpMultiply));
+        assert_eq!(vec![0x0C], make_op(OpCode::OpMultiply));
     }
 }

@@ -69,6 +69,13 @@ impl VM {
                         _ => panic!("Unknown arg type to OpMinus"),
                     }
                 }
+                0x0C => {
+                    // OpMultiply
+                    match self.pop() {
+                       Node::Int(num) => self.push(Node::Int(num)), 
+                       _=> panic!("Unknown arg type to OpMultiply"),
+                    }
+                }
                 _ => panic!("Unknown instruction"),
             }
         }
