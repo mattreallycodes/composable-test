@@ -60,12 +60,12 @@ mod tests {
     fn basics() {
         assert_eq!(Interpreter::from_source("1 * 2").unwrap() as i32, 2);
         assert_eq!(Interpreter::from_source("1 + 2").unwrap() as i32, 3);
-        // assert_eq!(Interpreter::source("(1 + 2)").unwrap() as i32, 3);
-        // assert_eq!(Interpreter::from_source("2 + (2 - 1)").unwrap() as i32, 3);
-        // assert_eq!(Interpreter::from_source("(2 + 3) - 1").unwrap() as i32, 4);
-        //  assert_eq!(
-        //    Interpreter::from_source("1 + ((2 + 3) - (2 + 3))").unwrap() as i32,
-        //    1
-        // );
+     // assert_eq!(Interpreter::source("(1 + 2)").unwrap() as i32, 3);
+        assert_eq!(Interpreter::from_source("2 + (2 - 1)").unwrap() as i32, 3);
+        assert_eq!(Interpreter::from_source("(2 + 3) - 1").unwrap() as i32, 4);
+        assert_eq!(
+            Interpreter::from_source("1 + ((2 + 3) - (2 + 3))").unwrap() as i32,
+            1
+        );
     }
 }
