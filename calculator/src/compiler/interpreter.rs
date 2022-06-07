@@ -33,6 +33,7 @@ impl Eval {
                 match op {
                     Operator::Plus => child,
                     Operator::Minus => -child,
+                    Operator::Multiply => child,
                 }
             }
             Node::BinaryExpr { op, lhs, rhs } => {
@@ -42,6 +43,7 @@ impl Eval {
                 match op {
                     Operator::Plus => lhs_ret + rhs_ret,
                     Operator::Minus => lhs_ret - rhs_ret,
+                    Operator::Multiply => lhs_ret * rhs_ret,
                 }
             }
         }

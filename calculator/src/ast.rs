@@ -14,7 +14,7 @@ impl fmt::Display for Operator {
         match &self {
             Operator::Plus => write!(f, "+"),
             Operator::Minus => write!(f, "-"),
-            Operator::Multiply => write!(f, "x"),
+            Operator::Multiply => write!(f, "*"),
         }
     }
 }
