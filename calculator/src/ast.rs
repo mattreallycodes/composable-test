@@ -5,6 +5,7 @@ use std::fmt;
 pub enum Operator {
     Plus,
     Minus,
+    Multiply,
 }
 // ANCHOR_END: operator
 
@@ -13,6 +14,7 @@ impl fmt::Display for Operator {
         match &self {
             Operator::Plus => write!(f, "+"),
             Operator::Minus => write!(f, "-"),
+            Operator::Multiply => write!(f, "x"),
         }
     }
 }
@@ -21,6 +23,7 @@ impl fmt::Display for Operator {
 // ANCHOR: node
 pub enum Node {
     Int(i32),
+    Float(f64),
     UnaryExpr {
         op: Operator,
         child: Box<Node>,
