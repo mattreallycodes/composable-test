@@ -23,7 +23,6 @@ impl fmt::Display for Operator {
 // ANCHOR: node
 pub enum Node {
     Int(i32),
-    Float(f64),
     UnaryExpr {
         op: Operator,
         child: Box<Node>,
