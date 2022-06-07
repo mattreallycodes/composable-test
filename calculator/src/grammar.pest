@@ -2,13 +2,13 @@ Program = _{ SOI ~ Expr ~ EOF }
 
 Expr = { UnaryExpr | BinaryExpr | Term }
 
-Term = _{Int | "(" ~ Expr ~ ")" }
+Term = _{Int | "(" ~ Expr ~ Expr ~ ")" }
 
 UnaryExpr = { Operator ~ Term }
 
 BinaryExpr = { Term ~ (Operator ~ Term)+ }
 
-Operator = { "+" | "-" }
+Operator = { "+" | "-" | "x" }
 
 Int = @{ Operator? ~ ASCII_DIGIT+ }
 
