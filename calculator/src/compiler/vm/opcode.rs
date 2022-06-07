@@ -7,6 +7,7 @@ pub enum OpCode {
     OpSub,
     OpPlus,
     OpMinus,
+    OpMultiply,
 }
 // ANCHOR_END: vm_opcode
 
@@ -32,8 +33,9 @@ pub fn make_op(op: OpCode) -> Vec<u8> {
         OpCode::OpAdd => vec![0x03],  // decimal repr is 3
         OpCode::OpSub => vec![0x04],  // decimal repr is 4
         OpCode::OpPlus => vec![0x0A], // decimal repr is 10
-        OpCode::OpMinus => vec![0x0B], // decimal repr is 11
-                                       // ANCHOR_END: vm_make_op
+        OpCode::OpMinus => vec![0x0B], // decimal repr is 11 
+        OpCode::OpMultiply => vec![0x0C], // decimal repr is 12
+        // ANCHOR_END: vm_make_op
     }
 }
 
@@ -54,5 +56,10 @@ mod tests {
     #[test]
     fn make_op_add() {
         assert_eq!(vec![0x03], make_op(OpCode::OpAdd));
+    }
+
+    #[test]
+    fn make_op_mul() {
+        assert_eq!(vec![0x06], make_op(OpCode::OpMultiply));
     }
 }

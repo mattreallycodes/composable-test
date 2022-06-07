@@ -68,6 +68,7 @@ impl<'a> RecursiveBuilder<'a> {
                 match op {
                     Operator::Minus => child.const_neg(),
                     Operator::Plus => child,
+                    Operator::Multiply => child,
                 }
             }
             Node::BinaryExpr { op, lhs, rhs } => {
@@ -77,6 +78,7 @@ impl<'a> RecursiveBuilder<'a> {
                 match op {
                     Operator::Plus => self.builder.build_int_add(left, right, "plus_temp"),
                     Operator::Minus => self.builder.build_int_sub(left, right, "minus_temp"),
+                    Operator::Multiply => self.builder.build_int_mul(left, right, "multiply_temp"),
                 }
             }
         }

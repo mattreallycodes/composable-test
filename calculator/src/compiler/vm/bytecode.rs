@@ -71,6 +71,7 @@ impl Interpreter {
                 match op {
                     Operator::Plus => self.add_instruction(OpCode::OpPlus),
                     Operator::Minus => self.add_instruction(OpCode::OpMinus),
+                    Operator::Multiply => self.add_instruction(OpCode::OpMultiply),
                 };
             }
             Node::BinaryExpr { op, lhs, rhs } => {
@@ -79,6 +80,7 @@ impl Interpreter {
                 match op {
                     Operator::Plus => self.add_instruction(OpCode::OpAdd),
                     Operator::Minus => self.add_instruction(OpCode::OpSub),
+                    Operator::Multiply => self.add_instruction(OpCode::OpMultiply),
                 };
             }
         };
@@ -93,6 +95,7 @@ mod tests {
     fn basics() {
         infix_template("+", OpCode::OpAdd);
         infix_template("-", OpCode::OpSub);
+        infix_template("*", OpCode::OpMultiply);
     }
 
     fn infix_template(infix_str: &str, op_code: OpCode) {
